@@ -1,4 +1,5 @@
 using Lesson2.Sorters.Base;
+using Lesson2.Structures.LinkListStructure;
 
 namespace Lesson2;
 
@@ -20,7 +21,12 @@ public static class Extensions
         ConsoleColor def = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(message);
-        Console.ForegroundColor = def;
-        
+        Console.ForegroundColor = def;       
+    }
+
+    public static void Print<T>(this LinkList<T> list, string message) where T: struct
+    {
+        message.PrintTitle();
+        Console.WriteLine($"{list.Count.ToString().PadLeft(3)}: {list}");
     }
 }
